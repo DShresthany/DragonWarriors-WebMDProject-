@@ -23,6 +23,7 @@ public class BMIActions {
 			bool = true;
 		}
 		return bool;
+		//
 	}
 
 	public void enterFeet(String feet) {
