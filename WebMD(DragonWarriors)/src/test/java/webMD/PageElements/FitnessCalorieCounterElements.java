@@ -11,7 +11,7 @@ public class FitnessCalorieCounterElements {
 	@FindBy(xpath = "//input[@id='search-form']")
 	public WebElement searchExercise;
 
-	@FindBy(xpath = "//div[@class='results-area ng-scope']/div/ul/li[1]")
+	@FindBy(xpath = "//div[@class='results-area ng-scope']/div/ul/li[1]/a/h4")
 	public WebElement ClickFirstExercise;
 
 	@FindBy(xpath = "//a[contains(text(), 'Bicycling')]")

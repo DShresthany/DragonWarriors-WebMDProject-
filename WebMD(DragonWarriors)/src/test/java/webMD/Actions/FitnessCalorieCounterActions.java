@@ -1,8 +1,7 @@
 package webMD.Actions;
 
 import java.util.concurrent.TimeUnit;
-
-import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -41,10 +40,16 @@ public class FitnessCalorieCounterActions {
 	public void enterExercise(String string) {
 		CalorieElements.searchExercise.sendKeys(string);
 		CalorieElements.searchExercise.sendKeys(Keys.ENTER);
+		CalorieElements.searchExercise.sendKeys(Keys.TAB);
+
 	}
 
 	public void clickFirstExercise() {
-		CalorieElements.ClickFirstExercise.click();
+//		WebDriverWait wait =new WebDriverWait(SetupDrivers.chromeDriver, 15);
+//		wait.until(ExpectedConditions.elementToBeClickable(CalorieElements.ClickFirstExercise));
+		JavascriptExecutor jse = (JavascriptExecutor)SetupDrivers.chromeDriver;
+		jse.executeScript("arguments[0].click()", CalorieElements.ClickFirstExercise);
+//		CalorieElements.ClickFirstExercise.click();
 	}
 
 	public void clickExcersice() {
@@ -79,7 +84,9 @@ public class FitnessCalorieCounterActions {
 
 		WebDriverWait wait = new WebDriverWait(SetupDrivers.chromeDriver, 15);
 		wait.until(ExpectedConditions.elementToBeClickable(CalorieElements.CalculateBtn));
-		CalorieElements.CalculateBtn.click();
+		JavascriptExecutor jse = (JavascriptExecutor)SetupDrivers.chromeDriver;
+		jse.executeScript("arguments[0].click()", CalorieElements.CalculateBtn);
+//		CalorieElements.CalculateBtn.click();
 	}
 
 	public boolean verifyCaloriesBurned() {

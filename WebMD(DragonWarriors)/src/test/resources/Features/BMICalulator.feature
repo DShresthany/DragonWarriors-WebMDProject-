@@ -1,8 +1,8 @@
-@tag
+
 Feature: BMI Calculator Feature
   This feature is for WebMD BMI Calculator functionality
 
-  @Sprint1
+  @Sanity
   Scenario Outline: Verify that user is able to calculate the BMI entering valid data
     Given I land on the WebMD homepage
     And I click on the BMI Calcular link
@@ -17,7 +17,7 @@ Feature: BMI Calculator Feature
       |    8 |      5 |    100 |
       |    6 |     11 |    500 |
 
-  @Sprint2
+  @Regression
   Scenario Outline: Verify that user is able see warning error message if user enters invalid data in BMI Calculator
     Given I land on the WebMD homepage
     And I click on the BMI Calcular link

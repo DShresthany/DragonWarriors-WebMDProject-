@@ -3,7 +3,7 @@
 Feature: Fitness Calorie Counter Feature
 	This feature is for WebMD Fitness Calorie Counter
   
-  @Sprint1
+  @Sprint2
   Scenario Outline: Verify that user is able to use the Fitness Calorie Counter Functionality of WebMD page
     Given I land on the WebMD homepage
     And I click on Fitness Calorie Counter

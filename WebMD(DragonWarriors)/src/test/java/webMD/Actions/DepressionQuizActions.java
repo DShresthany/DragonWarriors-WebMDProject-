@@ -2,6 +2,7 @@ package webMD.Actions;
 
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -65,9 +66,14 @@ public class DepressionQuizActions {
 	}
 
 	public void clickAnswer1() {
+		WebDriverWait wait = new WebDriverWait(SetupDrivers.chromeDriver, 10);
+		wait.until(ExpectedConditions.elementToBeClickable(QuizElements.Truelink));
 		QuizElements.Truelink.click();
+		
+		
+//		QuizElements.Truelink.click();
 
-		QuizElements.NextBtn.click();
+	//	QuizElements.NextBtn.click();
 
 //}
 	}
@@ -82,7 +88,13 @@ public class DepressionQuizActions {
 	}
 
 	public void clickNext() {
-
+		WebDriverWait wait1 = new WebDriverWait(SetupDrivers.chromeDriver, 10);
+		wait1.until(ExpectedConditions.elementToBeClickable(QuizElements.NextBtn));
+		Actions action = new Actions(SetupDrivers.chromeDriver);
+		action.moveToElement(QuizElements.NextBtn).click().perform();
+//		JavascriptExecutor jse = (JavascriptExecutor)SetupDrivers.chromeDriver;
+//		jse.executeScript("arguments[0].click()", 	QuizElements.NextBtn);
+//		System.out.println(QuizElements.NextBtn.getText());
 	}
 
 	public boolean verifyQuizResult() {

@@ -28,8 +28,8 @@ public class DepressionQuizElements {
 	@FindBy(xpath = "//ul[@id='rmq_slides']/li[@data-slide-type='answer'='slide answer'][1]//a[@class='rmq_next']")
 	public WebElement Truelink2;
 
-	@FindBy(xpath = "//ul[@id='rmq_slides']/li[@data-slide-type='answer' and @style[contains(., 'display: list-item')]]//i[@class='icon-arrow-right']")
-//"//ul[@id='rmq_slides']/li[@data-slide-type='answer' and @style[contains(., 'display: list-item')]]//span[@class='rmq_next_text']")
+	@FindBy(xpath = "//ul[@id='rmq_slides']/li[@data-slide-type='answer' and @style[contains(., 'display: list-item')]]/div/div[3]/ul/li/a/span")
+//"//ul[@id='rmq_slides']/li[@data-slide-type='answer' and @style[contains(., 'display: list-item')]]//i[@class='icon-arrow-right']")
 	public WebElement NextBtn;
 
 	@FindBy(id = "rmq_score_graphiccanvas")

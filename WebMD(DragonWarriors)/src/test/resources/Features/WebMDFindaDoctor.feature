@@ -1,6 +1,4 @@
 #Author: Dikesh Shrestha
-
-
 Feature: Find a Doctor Feature
   This feature is for WebMD Find a Doctor functionality
 
