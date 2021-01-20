@@ -1,6 +1,8 @@
 package webMD.Actions;
 
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import webMD.PageElements.BMICalculatorElements;
 import webMD.Utilities.SetupDrivers;
@@ -39,6 +41,8 @@ public class BMIActions {
 	}
 
 	public void clickSubmitBtn() {
+		WebDriverWait wait = new WebDriverWait(SetupDrivers.chromeDriver, 10);
+		wait.until(ExpectedConditions.elementToBeClickable(BMIElements.submitBtn));
 		BMIElements.submitBtn.click();
 	}
 

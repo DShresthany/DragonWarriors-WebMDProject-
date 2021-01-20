@@ -47,8 +47,8 @@ public class BMIStepDefinition {
 
 	}
 
-	@Then("I am able to see my BMI calulation result")
-	public void i_am_able_to_see_my_BMI_calulation_result(io.cucumber.datatable.DataTable dataTable) {
+	@Then("I am able to see BMI Result")
+	public void i_am_able_to_see_BMI_result() {
 		boolean Actual = Actions2.verifyBMIResult();
 		Assert.assertEquals(Actual, true);
 
