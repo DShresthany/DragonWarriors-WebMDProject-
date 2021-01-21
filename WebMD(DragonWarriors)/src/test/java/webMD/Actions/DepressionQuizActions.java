@@ -1,8 +1,11 @@
 package webMD.Actions;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -65,46 +68,51 @@ public class DepressionQuizActions {
 		return bool;
 	}
 
-	public void clickAnswer1() {
-		WebDriverWait wait = new WebDriverWait(SetupDrivers.chromeDriver, 10);
-		wait.until(ExpectedConditions.elementToBeClickable(QuizElements.Truelink));
-		QuizElements.Truelink.click();
-		
-		
+	public void clickAnswer1() throws InterruptedException {
+		JavascriptExecutor jse = (JavascriptExecutor)SetupDrivers.chromeDriver;
+		jse.executeScript("arguments[0].click()", 	QuizElements.Truelink);
+		Thread.sleep(5000);
+
 //		QuizElements.Truelink.click();
-
-	//	QuizElements.NextBtn.click();
-
-//}
 	}
+//		List<WebElement> question = SetupDrivers.chromeDriver
+//				.findElements(By.xpath("//li[@class='slide question slide-with-image']"));
+//		for (WebElement li : question) {
+//			if (li.isDisplayed()) {
+//				li.findElement(By.xpath(
+//						"//ul[@id='rmq_slides']/li[@data-slide-type='question' and @style[not(contains(., 'display: none'))]]//ul[@class='radio_inputs']//a[@data-selected-answer='a']"))
+//						.click();
+//			}
+//		}
+//
+//	}
 
-	public void clickAnswer2() {
-		QuizElements.Truelink.click();
-		WebDriverWait wait = new WebDriverWait(SetupDrivers.chromeDriver, 10);
-		wait.until(ExpectedConditions.textToBePresentInElement(QuizElements.NextBtn, "Next"));
-		QuizElements.NextBtn.click();
-		QuizElements.NextBtn.click();
 
-	}
+	public void clickNext() throws InterruptedException {
+		JavascriptExecutor jse = (JavascriptExecutor)SetupDrivers.chromeDriver;
+		jse.executeScript("arguments[0].click()", 	QuizElements.NextBtn);
+		Thread.sleep(5000);
 
-	public void clickNext() {
-		WebDriverWait wait1 = new WebDriverWait(SetupDrivers.chromeDriver, 10);
-		wait1.until(ExpectedConditions.elementToBeClickable(QuizElements.NextBtn));
-		Actions action = new Actions(SetupDrivers.chromeDriver);
-		action.moveToElement(QuizElements.NextBtn).click().perform();
-//		JavascriptExecutor jse = (JavascriptExecutor)SetupDrivers.chromeDriver;
-//		jse.executeScript("arguments[0].click()", 	QuizElements.NextBtn);
-//		System.out.println(QuizElements.NextBtn.getText());
+//		QuizElements.NextBtn.click();
+//		List<WebElement> answer = SetupDrivers.chromeDriver.findElements(By.xpath("//li[@class='slide answer']"));
+//		for (WebElement li : answer) {
+//			if (li.isDisplayed()) {
+//				li.findElement(By.xpath(
+//						"//ul[@id='rmq_slides']/li[@data-slide-type='answer' and @style[contains(., 'display: list-item')]]/div/div[3]/ul/li/a/span"))
+//						.click();
+//			}
+//		}
+
 	}
 
 	public boolean verifyQuizResult() {
 		boolean bool = false;
-//		  if(QuizElements.Quizresult.isDisplayed()) {
+//		if(QuizElements.Quizresult.isDisplayed()) {
 //			  bool = true;
 //		  }
 //		  return bool;
 
-		if (QuizElements.Test.isDisplayed()) {
+		if (QuizElements.Quizresult.isDisplayed()) {
 			bool = true;
 		}
 		return bool;

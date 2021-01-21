@@ -35,6 +35,5 @@ public class DepressionQuizElements {
 	@FindBy(id = "rmq_score_graphiccanvas")
 	public WebElement Quizresult;
 
-	@FindBy(xpath = "//*[@id=\"rmq_slides\"]/li[5]/div/div[3]/h2")
-	public WebElement Test;
+
 }

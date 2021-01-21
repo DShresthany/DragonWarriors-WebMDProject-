@@ -1,10 +1,15 @@
 package webMD.StepDef;
 
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import webMD.Actions.DepressionQuizActions;
+import webMD.Utilities.SetupDrivers;
 
 public class DepressionQuizStepDefinition {
 	DepressionQuizActions Quiz = new DepressionQuizActions();
@@ -59,23 +64,30 @@ public class DepressionQuizStepDefinition {
 
 	@Given("I am able to select the answers and complete the quizzes")
 	public void i_am_able_to_select_the_answers_and_complete_the_quizzes() throws InterruptedException {
-//	for(int i=0; i<=7; i++) {
-		Quiz.clickAnswer1();
-		Quiz.clickNext();
+	 for(int i=0; i<=7; i++) {
+		List<WebElement> question = SetupDrivers.chromeDriver
+				.findElements(By.xpath("//li[@class='slide question slide-with-image']"));
+		for (WebElement li : question) {
+			if (li.isDisplayed()) {
+				Quiz.clickAnswer1();
+			}
 
+		}
+		List<WebElement> answer = SetupDrivers.chromeDriver.findElements(By.xpath("//li[@class='slide answer']"));
+		for (WebElement li : answer) {
+			if (li.isDisplayed()) {
+				Quiz.clickNext();
 
-		Thread.sleep(5000);
-		// Quiz.clickAnswer2();
+			}
+		}
+	 }
 
-//	}
 	}
 
 	@Then("I am able to see the quiz result")
 	public void i_am_able_to_see_the_quiz_result() throws InterruptedException {
-		
-		Thread.sleep(5000);
-//Quiz.clickAnswer1();
-		//Assert.assertEquals(Quiz.verifyQuizResult(), true);
+		Quiz.clickNext();
+		Assert.assertEquals(Quiz.verifyQuizResult(), true);
 
 	}
 }
