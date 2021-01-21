@@ -13,6 +13,7 @@ public class BMIStepDefinition {
 	@Given("I click on the BMI Calcular link")
 	public void i_click_on_the_BMI_Calcular_link() {
 		Actions2.clickBMICalulator();
+		//
 
 	}
 
