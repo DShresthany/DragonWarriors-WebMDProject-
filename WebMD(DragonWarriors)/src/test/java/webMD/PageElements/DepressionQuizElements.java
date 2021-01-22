@@ -4,7 +4,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class DepressionQuizElements {
-	@FindBy(linkText = "HEALTH A-Z")
+	@FindBy(xpath = "//div[@class='global-nav-center-container']/ul[2]/li[1]")
 	public WebElement Healthlink;
 
 	@FindBy(linkText = "Depression")
