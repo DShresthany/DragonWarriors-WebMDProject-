@@ -19,7 +19,7 @@ Feature: BMI Calculator Feature
       |    5 |     12 |     88 |
 
   @Sanity @Regression
-  Scenario Outline: Verify that user is able see warning error message if user enters valid data in BMI Calculator
+  Scenario Outline: Verify that user is able to see BMI Result if user enters valid data in BMI Calculator
     Given I land on the WebMD homepage
     And I click on the BMI Calcular link
     And I land on BMI Calculator Page
