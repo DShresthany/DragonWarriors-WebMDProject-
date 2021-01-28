@@ -24,8 +24,8 @@ public class SignUpFeature {
 	}
 	
 	public void enterEmailPassword() {
-		SignUp.Username.sendKeys("newnew@gmail.com");
-		SignUp.Password.sendKeys("talentech_1");
+		SignUp.Username.sendKeys("testtest45667@gmail.com");
+		SignUp.Password.sendKeys("Testtest45667");
 		SignUp.Password.sendKeys(Keys.TAB);
 		SignUp.DOB.sendKeys("12202003");
 		SignUp.Password.sendKeys(Keys.TAB);
