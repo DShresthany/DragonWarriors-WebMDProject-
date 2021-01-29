@@ -1,10 +1,13 @@
 package webMD.StepDef;
 
 
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import webMD.Actions.SearchBoxActions;
+import webMD.Utilities.SetupDrivers;
 
 public class SearchBoxStepDef {
 	
@@ -30,8 +33,9 @@ public class SearchBoxStepDef {
 
 	@Then("I should be taken to the search result page")
 	public void i_should_be_taken_to_the_search_result_page() {
-		boolean Actual = searchAct.verifySearchResult();
-		Assert.assertEquals(Actual, true);
+		WebDriverWait wait = new WebDriverWait(SetupDrivers.chromeDriver, 3);
+		wait.until(ExpectedConditions.titleContains("WebMD Health Search"));
+		Assert.assertEquals(searchAct.verifySearchResult(), true);
 		
 	}
 

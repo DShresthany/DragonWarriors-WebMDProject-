@@ -12,7 +12,7 @@ Then I should be taken to the search result page
 Examples:
 |     search       |
 |     thyroid      |
-|     diaebetes    |
+|     diabetes     |
 |     anxiety      |
 
 

@@ -1,9 +1,12 @@
 package webMD.StepDef;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import io.cucumber.java.en.Given;
@@ -28,6 +31,8 @@ public class DepressionQuizStepDefinition {
 
 	@Given("I land on Depression page")
 	public void i_land_on_Depression_page() {
+		WebDriverWait wait = new WebDriverWait(SetupDrivers.chromeDriver, 10);
+		wait.until(ExpectedConditions.titleContains("Depression"));
 		Assert.assertEquals(Quiz.verifyDepressionPage(), true);
 
 	}
@@ -46,6 +51,7 @@ public class DepressionQuizStepDefinition {
 
 	@Given("I land on Depression Quizzes Page")
 	public void i_land_on_Depression_Quizzes_Page() {
+		SetupDrivers.chromeDriver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		Assert.assertEquals(Quiz.verifyDepressionQuizPage(), true);
 
 	}

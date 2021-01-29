@@ -1,11 +1,14 @@
 package webMD.StepDef;
 
+import java.util.concurrent.TimeUnit;
+
 import org.testng.Assert;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import webMD.Actions.FindaDoctorActions;
+import webMD.Utilities.SetupDrivers;
 
 public class FindaDoctorStepDefinition {
 	FindaDoctorActions Action1 = new FindaDoctorActions();
@@ -25,6 +28,7 @@ public class FindaDoctorStepDefinition {
 
 	@When("I land on Find a Doctor page")
 	public void i_land_on_Find_a_Doctor_page() {
+		SetupDrivers.chromeDriver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		Assert.assertEquals(Action1.verifyFindaDocPage(), true);
 	}
 

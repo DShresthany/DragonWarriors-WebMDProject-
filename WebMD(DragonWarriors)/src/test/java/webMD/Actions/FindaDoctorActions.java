@@ -4,6 +4,8 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import webMD.PageElements.FindaDoctorElements;
 import webMD.Utilities.SetupDrivers;
@@ -34,6 +36,8 @@ public class FindaDoctorActions {
 
 	public boolean verifyFindaDocPage() {
 		boolean bool = false;
+		WebDriverWait wait = new WebDriverWait(SetupDrivers.chromeDriver, 10);
+		wait.until(ExpectedConditions.titleContains("Find Doctors Near You"));
 		System.out.println(SetupDrivers.chromeDriver.getTitle());
 		if (SetupDrivers.chromeDriver.getTitle().contains("Find Doctors Near You")) {
 			bool = true;

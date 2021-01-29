@@ -2,6 +2,8 @@ package webMD.Actions;
 
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import webMD.PageElements.SignUpElements;
 import webMD.Utilities.SetupDrivers;
@@ -20,12 +22,14 @@ public class SignUpFeature {
 	}
 	
 	public void clickSignUnLink() {
+		WebDriverWait wait = new WebDriverWait(SetupDrivers.chromeDriver, 3);
+		wait.until(ExpectedConditions.elementToBeClickable(SignUp.SignUpLink));
 		SignUp.SignUpLink.click();
 	}
 	
 	public void enterEmailPassword() {
-		SignUp.Username.sendKeys("testtest45667@gmail.com");
-		SignUp.Password.sendKeys("Testtest45667");
+		SignUp.Username.sendKeys("metald_666@gmail.com");
+		SignUp.Password.sendKeys("morgoth666");
 		SignUp.Password.sendKeys(Keys.TAB);
 		SignUp.DOB.sendKeys("12202003");
 		SignUp.Password.sendKeys(Keys.TAB);

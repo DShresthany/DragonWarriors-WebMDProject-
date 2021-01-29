@@ -1,5 +1,9 @@
 package webMD.StepDef;
 
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import io.cucumber.java.en.Given;
@@ -18,6 +22,8 @@ public class fitnessCalorieCounterStepDefinition {
 
 	@Given("I land on Fitness & Exercise page")
 	public void i_land_on_Fitness_Exercise_page() {
+		WebDriverWait wait = new WebDriverWait(SetupDrivers.chromeDriver, 10);
+		wait.until(ExpectedConditions.titleContains("Calories Burned Calculator"));
 		Assert.assertEquals(CalorieActions.verifyFitnessPage(), true);
 	}
 

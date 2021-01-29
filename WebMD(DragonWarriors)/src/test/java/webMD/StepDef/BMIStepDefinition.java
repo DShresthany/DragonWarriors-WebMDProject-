@@ -1,10 +1,13 @@
 package webMD.StepDef;
 
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import webMD.Actions.BMIActions;
+import webMD.Utilities.SetupDrivers;
 
 public class BMIStepDefinition {
 
@@ -19,6 +22,8 @@ public class BMIStepDefinition {
 
 	@Given("I land on BMI Calculator Page")
 	public void i_land_on_BMI_Calculator_Page() {
+		WebDriverWait wait = new WebDriverWait(SetupDrivers.chromeDriver, 5);
+		wait.until(ExpectedConditions.titleContains("BMI Calculator"));
 		boolean Actual = Actions2.verifyBMIPage();
 		Assert.assertEquals(Actual, true);
 
@@ -57,6 +62,8 @@ public class BMIStepDefinition {
 
 	@Then("I am able to see error message")
 	public void i_am_able_to_see_error_message() {
+		WebDriverWait wait = new WebDriverWait(SetupDrivers.chromeDriver, 10);
+		wait.until(ExpectedConditions.titleContains("BMI Calculator"));
 		boolean Actual = Actions2.verifyErrorMsg();
 		Assert.assertEquals(Actual, true);
 
